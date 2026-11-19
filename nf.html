@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neil Friesen Excavating</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a hard-working trades site. Dark soil header and footer, concrete-grey body, safety-yellow for calls to action. Phone number always one tap away. */
+:root {
+  --soil: #231d17;
+  --soil-2: #342b22;
+  --concrete: #eeece8;
+  --paper: #ffffff;
+  --ink: #1c1915;
+  --muted: #5f574e;
+  --line: #d9d4cc;
+  --hazard: #f2b705;
+  --hazard-ink: #231d17;
+  --display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--concrete); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+a { color: inherit; }
+img { max-width: 100%; }
+h1, h2, h3 { font-family: var(--display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.02; margin: 0; text-wrap: balance; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+.demo-bar { background: var(--hazard); color: var(--hazard-ink); font-size: 14px; font-weight: 600; text-align: center; padding: 8px 16px; }
+
+header.top { background: var(--soil); color: #f4efe7; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-mark { width: 44px; height: 44px; background: var(--hazard); color: var(--hazard-ink); display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 22px; border-radius: 4px; }
+.logo-text { font-family: var(--display); font-weight: 700; font-size: 22px; text-transform: uppercase; line-height: 1; }
+.logo-text small { display: block; font-family: var(--body); font-weight: 500; font-size: 12px; letter-spacing: 0.12em; color: #c9bfb2; margin-top: 3px; }
+.nav-links { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; font-weight: 600; font-size: 15px; }
+.nav-links a { text-decoration: none; color: #e6ddd0; }
+.nav-links a:hover { color: var(--hazard); }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 700; font-size: 19px; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; padding: 12px 22px; border-radius: 4px; border: 2px solid transparent; cursor: pointer; }
+.btn-hazard { background: var(--hazard); color: var(--hazard-ink); }
+.btn-hazard:hover { background: #ffc61a; }
+.btn-ghost { border-color: #8a7d6d; color: #f4efe7; background: transparent; }
+.btn-ghost:hover { border-color: var(--hazard); color: var(--hazard); }
+.btn:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--hazard); outline-offset: 2px; }
+
+.hero { padding: 56px 0 64px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 7vw, 82px); font-weight: 800; color: #fff; }
+.hero h1 span { color: var(--hazard); }
+.hero p { color: #d8cfc2; font-size: 19px; max-width: 34em; margin: 18px 0 26px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.photo { position: relative; border-radius: 6px; overflow: hidden; background:
+  repeating-linear-gradient(135deg, rgba(0,0,0,0.05) 0 14px, rgba(0,0,0,0) 14px 28px),
+  linear-gradient(160deg, #8c7357, #5b4733 70%, #3f3124);
+  display: flex; align-items: flex-end; min-height: 200px; }
+.photo span { background: rgba(35,29,23,0.85); color: #f4efe7; font-size: 13px; font-weight: 500; padding: 6px 10px; margin: 12px; border-radius: 3px; }
+.hero .photo { min-height: 360px; border: 3px solid var(--soil-2); }
+
+.strip { background: var(--hazard); color: var(--hazard-ink); }
+.strip .wrap { display: flex; gap: 12px 36px; flex-wrap: wrap; justify-content: space-between; padding: 16px 20px; font-family: var(--display); font-weight: 700; font-size: 20px; text-transform: uppercase; }
+
+section.block { padding: 72px 0; }
+.eyebrow { font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.block h2 { font-size: clamp(36px, 5vw, 54px); font-weight: 800; }
+.lead { max-width: 40em; color: var(--muted); margin: 14px 0 0; }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+.svc { background: var(--paper); border: 1px solid var(--line); border-top: 5px solid var(--hazard); border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.svc h3 { font-size: 26px; font-weight: 700; }
+.svc p { margin: 0; color: var(--muted); font-size: 16px; }
+
+.work { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: 210px; gap: 14px; margin-top: 36px; }
+.work .photo:first-child { grid-row: span 2; }
+
+.why { background: var(--soil); color: #f4efe7; }
+.why .eyebrow { color: #c9bfb2; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 36px; }
+.why-item { border-left: 3px solid var(--hazard); padding-left: 18px; }
+.why-item h3 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.why-item p { margin: 0; color: #d8cfc2; font-size: 16px; }
+.review { margin-top: 44px; background: var(--soil-2); border-radius: 6px; padding: 26px 28px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.stars { color: var(--hazard); font-size: 24px; letter-spacing: 3px; }
+.review p { margin: 0; font-size: 18px; color: #f4efe7; }
+
+.contact { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; margin-top: 36px; align-items: start; }
+.contact-card { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: grid; gap: 18px; }
+.contact-card .label { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.contact-card .value { font-family: var(--display); font-weight: 700; font-size: 28px; text-transform: uppercase; }
+.contact-card .value a { text-decoration: none; }
+form { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 26px; display: grid; gap: 14px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+input, select, textarea { font: inherit; font-weight: 400; padding: 11px 12px; border: 1px solid #c4bdb2; border-radius: 4px; background: #fbfaf8; color: var(--ink); }
+textarea { min-height: 110px; resize: vertical; }
+.form-note { margin: 0; font-size: 15px; color: var(--muted); }
+.form-done { display: none; background: #fff6d6; border: 1px solid var(--hazard); border-radius: 4px; padding: 14px; font-weight: 600; }
+
+footer { background: var(--soil); color: #c9bfb2; font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 26px 20px; }
+
+@media (max-width: 860px) {
+  .hero, .contact { grid-template-columns: 1fr; }
+  .hero .photo { min-height: 240px; }
+  .services, .why-grid { grid-template-columns: 1fr 1fr; }
+  .work { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; }
+  .work .photo:first-child { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 520px) {
+  .services, .why-grid, .row { grid-template-columns: 1fr; }
+  .nav-links a:not(.btn) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Demo website by MH Captures/Media. Photos and some wording are placeholders.</div>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="#top" id="top">
+        <span class="logo-mark" aria-hidden="true">NF</span>
+        <span class="logo-text">Neil Friesen Excavating<small>Aylmer, Ontario</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-hazard" href="tel:+15197739520">519-773-9520</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Digging, grading &amp; site prep <span>done right</span></h1>
+        <p>Local excavating from Aylmer for homeowners, farms and builders across East Elgin. We'll come out, look at the job and give you a straight answer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-hazard" href="#contact">Get a free quote</a>
+          <a class="btn btn-ghost" href="tel:+15197739520">Call 519-773-9520</a>
+        </div>
+      </div>
+      <div class="photo"><span>Photo: excavator on a local job site</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Locally owned</span>
+    <span>Free estimates</span>
+    <span>Residential · Farm · Commercial</span>
+    <span>Serving East Elgin</span>
+  </div>
+</div>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="eyebrow">What we do</div>
+    <h2>Excavating services</h2>
+    <p class="lead">From a single trench to a full lot, we bring the right machine and leave the site clean.</p>
+    <div class="services">
+      <div class="svc"><h3>Basements &amp; foundations</h3><p>Digging for new homes, additions and garages, plus backfill once the walls are up.</p></div>
+      <div class="svc"><h3>Drainage &amp; tile</h3><p>Fixing wet yards and fields with drainage tile, swales and proper grading.</p></div>
+      <div class="svc"><h3>Grading &amp; levelling</h3><p>Rough and finish grading for yards, laneways, building pads and new sod.</p></div>
+      <div class="svc"><h3>Driveways &amp; laneways</h3><p>New gravel driveways and farm lanes built on a solid base, or old ones rebuilt.</p></div>
+      <div class="svc"><h3>Trenching</h3><p>Trenches for water lines, hydro, gas and other services to the house or barn.</p></div>
+      <div class="svc"><h3>Land clearing</h3><p>Removing stumps, brush, old concrete and debris to get the land ready to build.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Recent jobs</div>
+    <h2>Our work</h2>
+    <p class="lead">Real photos from real jobs around Aylmer, Malahide and Bayham.</p>
+    <div class="work">
+      <div class="photo"><span>Photo: basement dig for a new build</span></div>
+      <div class="photo"><span>Photo: drainage tile install</span></div>
+      <div class="photo"><span>Photo: finished grading</span></div>
+      <div class="photo"><span>Photo: new gravel laneway</span></div>
+      <div class="photo"><span>Photo: machine at work</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block why">
+  <div class="wrap">
+    <div class="eyebrow">Why call us</div>
+    <h2>Local crew, honest work</h2>
+    <div class="why-grid">
+      <div class="why-item"><h3>We know the ground</h3><p>Elgin County soil, clay and drainage are what we work in every day.</p></div>
+      <div class="why-item"><h3>Straight quotes</h3><p>We look at the job in person and tell you what it will take. No surprises.</p></div>
+      <div class="why-item"><h3>Clean finish</h3><p>We grade it out and clean up before we leave, so the site is ready for what's next.</p></div>
+    </div>
+    <div class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <p>Rated 5 stars on Google.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get started</div>
+    <h2>Request a free quote</h2>
+    <p class="lead">Tell us about the job and we'll get back to you. For anything urgent, just call.</p>
+    <div class="contact">
+      <div class="contact-card">
+        <div><div class="label">Phone</div><div class="value"><a href="tel:+15197739520">519-773-9520</a></div></div>
+        <div><div class="label">Location</div><div class="value">Calton Line, Aylmer ON</div></div>
+        <div><div class="label">Service area</div><div style="color:var(--muted)">Aylmer, Malahide, Springfield, Bayham, Port Burwell, St. Thomas and the rest of East Elgin</div></div>
+      </div>
+      <form id="quote" novalidate>
+        <div class="row">
+          <label for="q-name">Name<input id="q-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="q-phone">Phone<input id="q-phone" name="phone" type="tel" autocomplete="tel" required></label>
+        </div>
+        <div class="row">
+          <label for="q-town">Town<input id="q-town" name="town" type="text" placeholder="e.g. Aylmer"></label>
+          <label for="q-type">Type of job
+            <select id="q-type" name="type">
+              <option>Basement / foundation</option>
+              <option>Drainage / tile</option>
+              <option>Grading / levelling</option>
+              <option>Driveway / laneway</option>
+              <option>Trenching</option>
+              <option>Land clearing</option>
+              <option>Something else</option>
+            </select>
+          </label>
+        </div>
+        <label for="q-details">Job details<textarea id="q-details" name="details" placeholder="What needs doing, and roughly when?"></textarea></label>
+        <button class="btn btn-hazard" type="submit" style="justify-self:start">Send quote request</button>
+        <p class="form-note">On the live site this form will send straight to your phone or email.</p>
+        <div class="form-done" id="q-done" role="status">This is a demo, so nothing was sent. On the real site, Neil would get this request right away.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Neil Friesen Excavating Ltd. · Aylmer, Ontario</span>
+    <span>Website &amp; photography by MH Captures/Media</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('q-done').style.display = 'block';
+});
+</script>
+</body>
+</html>
